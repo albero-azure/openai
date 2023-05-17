@@ -36,12 +36,7 @@ One important aspect is that while interactive applications are typically equipp
 
 One last thing which is obviously in the hands of the user and falls entire under user responsibility is the utilization of these results.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_6b06eaf5491d4ba5.png)
+![Alt text](Picture1.jpg?raw=true "Title")
 
 **Role and Responsibilities of Enterprise Applications using AI Models**
 
