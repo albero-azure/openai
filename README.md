@@ -36,7 +36,7 @@ One important aspect is that while interactive applications are typically equipp
 
 One last thing which is obviously in the hands of the user and falls entire under user responsibility is the utilization of these results.
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/albero-azure/openai/blob/main/Picture1.png)
 
 **Role and Responsibilities of Enterprise Applications using AI Models**
 
