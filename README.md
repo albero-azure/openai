@@ -36,7 +36,7 @@ One important aspect is that while interactive applications are typically equipp
 
 One last thing which is obviously in the hands of the user and falls entire under user responsibility is the utilization of these results.
 
-![Alt text](Picture1.jpg?raw=true "Title")
+![alt text](http://url/to/img.png)
 
 **Role and Responsibilities of Enterprise Applications using AI Models**
 
@@ -46,12 +46,7 @@ For companies such a problem has another layer of complexity. Enterprises are ty
 
 To answer some of these challenges we have created a small model (please keep in mind that this is mental exercise rather than definite guidance). It is used later in this article to help us define parts of the architecture for building enterprise applications with the use of AI.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_34f72d233c7e7b60.png)
+![alt text](http://url/to/img.png)
 
 In this model user of AI is responsible for his or her intent, context handling, hypothesis as well as asks and style of communication as inputs for the system. In cases where users were trying to deliberately misuse the model this is their responsibility in the first place. Of course, such cases should be taken into consideration and dealt with and for that we have two more areas of responsibility.
 
@@ -102,12 +97,7 @@ Of course, we would need operations logging for each step of processing with all
 
 Naturally, user application will communicate with the whole system using some API ( **Application API Endpoint** ) where security, authentication as well as logic for communicating with user applications is implemented.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_f2d110ceb8bdd65e.png)
+![alt text](http://url/to/img.png)
 
 **Azure Components Used**
 
@@ -119,12 +109,7 @@ _Note. During the final preparations for publishing this article we have come ac
 
 _This specific case it shows both how to achieve functionality mentioned and also emphasizes importance of usage data technologies tailored for natural language indexing and processing._
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_3c0aad54c35bc514.png)
+![alt text](http://url/to/img.png)
 
 _Image Source_ [_Press et al. 2022_](https://arxiv.org/abs/2210.03350)
 
@@ -132,12 +117,7 @@ It is obvious that building a full new backend is not a simple task or one which
 
 There is no direct service match for Orchestrator at the moment so it should be implemented in a form of custom application and deployed on Azure AppService or Azure Kubernetes Service. API Endpoint can be also implemented as a custom application and exposed via Azure API Management.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_61432507eb70b011.png)
+![alt text](http://url/to/img.png)
 
 Operation Logging can be implemented using a combination of Storage Engine for storing and Azure Data Explorer for querying and serving data. Of course, forensics tools, methods, and procedures as well as verification of correctness of user requests processing should be implemented as custom processing with your own tools of choice compatible with ADX.
 
@@ -193,12 +173,7 @@ a)      And served back to the **End User Application**.
 
 13)  Responses are feeded back to the model via **Reinforcement Learning Feedback Loop**.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_49098f62e8b85bd2.png)
+![alt text](http://url/to/img.png)
 
 **Some Notes on Implementing Orchestration**
 
@@ -208,12 +183,7 @@ One way or another, the foundational idea is to create a dynamic environment whe
 
 To implement such a pattern, we always start with a **Request** (Ask) in mind that should be answered by a dynamically informed outcome the **Response** (Get), relying on the orchestration capabilities of the selected framework.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_230ce6f11d0ba1df.png)
+![alt text](http://url/to/img.png)
 
 A **Request** triggers the orchestrator or **Kernel** that can use the **Planner** to break down a user interaction in steps available to the environment as **Resources** , like **Skills** , **Memories** or **Connectors**.
 
@@ -229,12 +199,7 @@ Basically, you can build **Request Modifier** and **Response Filter** using a si
 
 For the sake of simplicity we would refer components enabling interactions between End-User Applications and Azure Open AI or other models as a "Semantic Kernel". As stated above, such a group of the components may be implemented using either Microsoft Semantic Kernel, Langchain or other sets of libraries out there. So, higher level architecture may look like this.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_e915bced2e4fabfd.png)
+![alt text](http://url/to/img.png)
 
 It is quite obvious that AI backed applications do not exist in a void. We need / would like to connect it to the wider Data ecosystem for a variety of reasons:
 
@@ -244,12 +209,7 @@ It is quite obvious that AI backed applications do not exist in a void. We need 
 
 So, in order to connect such applications with wider ecosystem we can use several extension points.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_1863395a8399f2c1.png)
+![alt text](http://url/to/img.png)
 
 **Collecting data on user behavior**
 
@@ -269,12 +229,7 @@ Since user is communicating with the platform in interactive manner, executing s
 
 Good example of this type of interaction will be booking or rebooking a flight ticket where users can not only ask to perform actions on their behalf but can also reconsider during the same conversation or start different flow (like asking for alternative options after the action was initiated).
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_62f70a312e96ed38.png)
+![alt text](http://url/to/img.png)
 
 **Enhancing responses with factual data from analytical systems**
 
@@ -288,12 +243,7 @@ Let us think of another example. For instance, our user asks application what th
 
 The challenge here is that in order to perform a lookup we need to have appropriate key as we cannot simply scan the whole dataset. Such a key may be found in internal systems and added as a session parameter during user authentication. The problem is that we should be prepared to perform lookups in various collections or tables (orders, itineraries, profiles, etc.) Thus, logically we have to have and maintain mapping table with one main key (which will be used as a session parameter) mapped to keys of other relevant collections. In this case our lookup will be in fact two lookups performed by Response Filter. First lookup against mapping table and second – against data table.
 
--
--
--
--
-
-![](RackMultipart20230517-1-sq0vqx_html_648f09dd9d3a28.png)
+![alt text](http://url/to/img.png)
 
 One last thing data should be also supplied with the feedback mechanisms. There might be a certain level of complexity associated with synchronizing data and responses from generative AI. Such gap could be potentially filled by introducing some of the specialized feedback mechanisms combining adjustment of prompts on Request Modifier and Response Filter as well as direct feedback regarding data quality, etc. At this moment in time working with data may require human intervention.
 
